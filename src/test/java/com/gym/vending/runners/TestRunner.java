@@ -6,14 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",           // path to your feature files
-        glue = "com.gym.vending.stepdefs",                  // package where your step defs are
+        features = "src/test/resources/features",
+        glue = "com.gym.vending.stepdefs",
         plugin = {
-                "pretty",                                        // readable console logs
-                "html:target/cucumber-report.html",             // generates HTML report
-                "json:target/cucumber-report.json"              // generates JSON report
+                "pretty",
+                "json:target/cucumber.json",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
-        monochrome = true,                                   // removes unreadable characters from console output
-        publish = false                                      // set true if you want to publish results online
+        monochrome = true,
+        tags = "${cucumber.filter.tags:}"
 )
 public class TestRunner {}
+

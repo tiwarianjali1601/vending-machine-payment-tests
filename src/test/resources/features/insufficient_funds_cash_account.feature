@@ -1,13 +1,12 @@
 @Regression
-Feature: Validate Available Payment Methods
+Feature: Validate available payment methods before checkout
 
-  Scenario: Show only valid payment options based on cash account balance
-    Given a customer has a cash account balance of 5€
-    And the customer selects items worth 15€
-    When the system displays payment options
-    Then the options should include:
-      | Debit/Credit Card |
+  Scenario: Show available payment methods at checkout
+    Given the customer is logged in with a cash account balance of 10€
+    And the customer selects a "Protein Bar" with quantity 1
+    When the customer views the payment options
+    Then the available methods should be:
+      | Debit/Credit card |
       | Apple Pay         |
       | Google Pay        |
-    And should not include:
-      | Cash Account      |
+    And cash account should not be visible
