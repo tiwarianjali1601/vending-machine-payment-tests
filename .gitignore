@@ -36,3 +36,25 @@ build/
 
 ### Mac OS ###
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+### Logs ###
+*.log
+test.log
+
+### Cucumber Reports ###
+cucumber.json
+
+### Allure ###
+allure-results/
+allure-report/
+.allure/
+
+### Other ###
+cp.txt
+exerp_assignment.zip
